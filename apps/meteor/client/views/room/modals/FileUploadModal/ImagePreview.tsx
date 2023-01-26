@@ -16,7 +16,7 @@ type ImagePreviewProps = {
 const ImagePreview = ({ url, file }: ImagePreviewProps): ReactElement => {
 	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(true);
-	const cropperRef = useRef<CropperRef>(null);
+	//const cropperRef = useRef<CropperRef>(null);
 
 	const handleLoad = (): void => setLoading(false);
 	const handleError = (): void => {
