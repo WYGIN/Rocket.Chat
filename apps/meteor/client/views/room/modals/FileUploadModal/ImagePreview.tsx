@@ -57,7 +57,6 @@ const ImagePreview = ({ url, file }: ImagePreviewProps): ReactElement => {
 				stencilProps={{
 					 grid: true
 				}}
-				{/*ref={cropperRef}*/}
 				maxWidth='full'
 				defaultSize={defaultSize}
 				onLoad={handleLoad}
