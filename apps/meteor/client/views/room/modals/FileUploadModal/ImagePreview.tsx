@@ -2,6 +2,9 @@ import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import React, { useState } from 'react';
 
+import { CropperRef, Cropper } from 'react-advanced-cropper';
+import 'react-advanced-cropper/dist/themes/compact.css';
+
 import GenericPreview from './GenericPreview';
 import PreviewSkeleton from './PreviewSkeleton';
 
@@ -13,12 +16,19 @@ type ImagePreviewProps = {
 const ImagePreview = ({ url, file }: ImagePreviewProps): ReactElement => {
 	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(true);
+	const cropperRef = useRef<CropperRef>(null);
 
 	const handleLoad = (): void => setLoading(false);
 	const handleError = (): void => {
 		setLoading(false);
 		setError(true);
 	};
+	const defaultSize = ({ imageSize, visibleArea }) => {            
+		return {                
+			width: (visibleArea || imageSize).width,                
+			height: (visibleArea || imageSize).height,            
+		};    
+	}
 
 	if (error) {
 		return <GenericPreview file={file} />;
@@ -27,7 +37,7 @@ const ImagePreview = ({ url, file }: ImagePreviewProps): ReactElement => {
 	return (
 		<>
 			{loading && <PreviewSkeleton />}
-			<Box
+			{/*<Box
 				is='img'
 				src={url}
 				maxWidth='full'
@@ -35,7 +45,20 @@ const ImagePreview = ({ url, file }: ImagePreviewProps): ReactElement => {
 				onLoad={handleLoad}
 				onError={handleError}
 				display={loading ? 'none' : 'initial'}
-			/>
+			/>*/}
+			<Cropper
+				src={url}
+				style={{ objectFit: 'contain' }}
+				stencilProps={{
+					 grid: true
+				}}
+				ref={cropperRef}
+				maxWidth='full'
+				defaultSize={defaultSize}
+				onLoad={handleLoad}
+				onError={handleError}
+				display={loading ? 'none' : 'initial'}
+				/>
 		</>
 	);
 };
