@@ -1,6 +1,6 @@
 import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { CropperRef, Cropper } from 'react-advanced-cropper';
 import 'react-advanced-cropper/dist/themes/compact.css';
