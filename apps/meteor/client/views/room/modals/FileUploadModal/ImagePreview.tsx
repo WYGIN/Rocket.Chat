@@ -37,16 +37,21 @@ const ImagePreview = ({ url, file }: ImagePreviewProps): ReactElement => {
 	return (
 		<>
 			{loading && <PreviewSkeleton />}
-			{/*<Box
-				is='img'
+			<Box
+				is='Cropper'
 				src={url}
 				maxWidth='full'
 				style={{ objectFit: 'contain' }}
 				onLoad={handleLoad}
 				onError={handleError}
 				display={loading ? 'none' : 'initial'}
-			/>*/}
-			<Cropper
+                                ref={cropperRef}
+                                defaultSize={defaultSize}
+                                stencilProps={{
+					 grid: true
+				}}
+			/>
+			{/*<Cropper
 				src={url}
 				style={{ objectFit: 'contain' }}
 				stencilProps={{
@@ -58,7 +63,7 @@ const ImagePreview = ({ url, file }: ImagePreviewProps): ReactElement => {
 				onLoad={handleLoad}
 				onError={handleError}
 				display={loading ? 'none' : 'initial'}
-				/>
+				/>*/}
 		</>
 	);
 };
