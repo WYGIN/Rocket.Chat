@@ -25,11 +25,8 @@ export class RecordList<T extends IRocketChatRecord> extends Emitter {
 	}
 
 	protected compare(a: T, b: T): number {
-		if(a instanceof RoomMemberUser && b instanceof RoomMemberUser) {
-			 
-			 
+		if(a instanceof RoomMemberUser && b instanceof RoomMemberUser)
 			return a.localeCompare(b, undefined, { sensitivity: 'base' });
-		}
 		return b._updatedAt.getTime() - a._updatedAt.getTime();
 	}
 
