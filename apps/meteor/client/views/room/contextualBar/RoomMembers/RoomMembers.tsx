@@ -11,7 +11,7 @@ import ScrollableContentWrapper from '../../../../components/ScrollableContentWr
 import VerticalBar from '../../../../components/VerticalBar';
 import RoomMembersRow from './RoomMembersRow';
 
-type RoomMemberUser = Pick<IUser, 'username' | '_id' | '_updatedAt' | 'name' | 'status'>;
+export type RoomMemberUser = Pick<IUser, 'username' | '_id' | '_updatedAt' | 'name' | 'status'>;
 
 type RoomMembersProps = {
 	rid: IRoom['_id'];
