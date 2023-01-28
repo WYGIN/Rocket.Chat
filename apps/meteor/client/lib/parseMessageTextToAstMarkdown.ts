@@ -148,6 +148,6 @@ const textToMessageToken = (textOrRoot: string | Root, parseOptions: Options): R
 	const parsedMessage = parse(textOrRoot, parseOptions);
 
 	const parsedMessageCleaned = parsedMessage[0].type !== 'LINE_BREAK' ? parsedMessage : (parsedMessage.slice(1) as Root);
-        console.log(`https://github.com/WYGIN/Rocket.Chat/edit/MDwithEmoji/apps/meteor/client/lib/parseMessageTextToAstMarkdown.ts \n parsedMessageCleaned: ${parsedMessageCleaned}`);
+        console.log(`https://github.com/WYGIN/Rocket.Chat/edit/MDwithEmoji/apps/meteor/client/lib/parseMessageTextToAstMarkdown.ts \n parsedMessageCleaned: ${JSON.stringify(parsedMessageCleaned)}`);
 	return parsedMessageCleaned;
 };
