@@ -1,5 +1,5 @@
 import type { IMessage, ITranslatedMessage, MessageAttachment, MessageQuoteAttachment } from '@rocket.chat/core-typings';
-import emojioneRender from '../../app/emoji-emojione/lib/emojioneRender';
+import { emojioneRender } from '../../app/emoji-emojione/lib/emojioneRender';
 import {
 	isFileAttachment,
 	isE2EEMessage,
