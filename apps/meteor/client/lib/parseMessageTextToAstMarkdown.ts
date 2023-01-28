@@ -1,4 +1,5 @@
 import type { IMessage, ITranslatedMessage, MessageAttachment, MessageQuoteAttachment } from '@rocket.chat/core-typings';
+import emojioneRender from '../../app/emoji-emojione/lib/emojioneRender';
 import {
 	isFileAttachment,
 	isE2EEMessage,
@@ -41,7 +42,8 @@ export const parseMessageTextToAstMarkdown = <
 	const translations = autoTranslateLanguage && isTranslatedMessage(msg) && msg.translations;
 	const translated = showAutoTranslate(message);
 
-	const text = (translated && translations && translations[autoTranslateLanguage]) || msg.msg;
+	const transText = (translated && translations && translations[autoTranslateLanguage]) || msg.msg;
+	const text = emojioneRender(transText);
 
 	return {
 		...msg,
