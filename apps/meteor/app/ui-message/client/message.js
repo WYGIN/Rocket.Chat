@@ -55,7 +55,8 @@ const renderBody = (msg, settings) => {
 	if (searchedText) {
 		msg = msg.replace(new RegExp(`(${searchedText})(?![^<]*>)`, 'gi'), (str) => `<mark>${str}</mark>`);
 	}
-
+        console.log(`https://github.com/WYGIN/Rocket.Chat/edit/MDwithEmoji/apps/meteor/app/ui-message/client/message.js \n msg: ${msg}`);
+        console.log(`https://github.com/WYGIN/Rocket.Chat/edit/MDwithEmoji/apps/meteor/app/ui-message/client/message.js \n msg.msg: ${msg.msg}`);
 	return msg;
 };
 
